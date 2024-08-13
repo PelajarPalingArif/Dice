@@ -103,7 +103,7 @@ left : 0, min, 95.5, max
 .moving-slider {
     position: absolute;
     top: -40px;
-    left: calc(47.75% - 8px);
+    left: calc(0% - 8px);
     background-color: white;
     width: 40px;
     height: 40px;
@@ -113,17 +113,18 @@ left : 0, min, 95.5, max
     align-items: center;
     border-radius: 20%;
     transition: left .4s ease-in-out;
+    opacity: 0;
 }
 
 .moving-slider::after {
     position: absolute;
-    content:' ';
+    content: ' ';
     width: 0;
     height: 0;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
     border-top: 12px solid white;
-    top:99%;
+    top: 99%;
 
 
 }
@@ -141,6 +142,25 @@ left : 0, min, 95.5, max
     -webkit-appearance: none;
 }
 
+#rangeInput::-webkit-slider-thumb {
+    border-radius: 50%;
+    border: 1px solid black;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 19px;
+    height: 19px;
+    background: white;
+    cursor: pointer;
+}
+
+#rangeInput::-moz-range-thumb {
+    border-radius: 50%;
+    border: 1px solid black;
+    width: 19px;
+    height: 19px;
+    background: white;
+    cursor: pointer;
+}
 
 
 
@@ -165,10 +185,17 @@ left : 0, min, 95.5, max
     margin-right: 30px;
 }
 
-.amount-wrap,
-.risk-wrap {
+.control-wrap {
     display: flex;
     flex-direction: column;
+}
+
+#winChanceInput:after {
+    content: "%";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    pointer-events: none;
 }
 
 button {

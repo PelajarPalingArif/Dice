@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dices</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="dice.png" type="image/x-icon">
+    <link rel="shortcut icon" href="diceedit.png" type="image/x-icon">
 </head>
 
 <body>
@@ -24,20 +24,24 @@
         </div>
         <div class="control">
 
-            <div class="amount-wrap">
+            <div class="control-wrap">
                 <label for="amountInput">Amount</label>
                 <input type="number" id="amountInput">
             </div>
-            <div class="risk-wrap">
-                <label for="riskInput">Risk</label>
-                <select name="risk" id="risk">
-                    <option value="10">Low</option>
-                    <option value="15">Medium</option>
-                    <option value="25">High</option>
-                </select>
+
+            <div class="control-wrap">
+                <label for="amountInput">Multiplier</label>
+                <input type="number" id="multiplierInput">
             </div>
-            <div class="clear-wrap"><button id="cashOut-button" disabled>Cash Out</button></div>
-            <div class="play-wrap"><button id="play-button">Play</button></div>
+            <div class="control-wrap">
+                <label for="amountInput">Win Chance</label>
+                <input type="number" id="winChanceInput">
+            </div>
+
+            <div class="play-wrap">
+                <button id="play-button">Play</button>
+                <button id="inverse-button">Invert</button>
+            </div>
         </div>
     </div>
 
