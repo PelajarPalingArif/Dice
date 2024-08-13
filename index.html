@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dices</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="dice.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="money-wrap">
+            <span id="currency">RM</span><span id="money">0.00</span>
+        </div>
+    </div>
+    <div class="dock">
+        <div class="container">
+            <div class="range-wrap">
+                <div class="moving-slider">XX.XX</div>
+                <input type="range" name="rangeInput" id="rangeInput" min="1" max="100">
+            </div>
+        </div>
+        <div class="control">
+
+            <div class="amount-wrap">
+                <label for="amountInput">Amount</label>
+                <input type="number" id="amountInput">
+            </div>
+            <div class="risk-wrap">
+                <label for="riskInput">Risk</label>
+                <select name="risk" id="risk">
+                    <option value="10">Low</option>
+                    <option value="15">Medium</option>
+                    <option value="25">High</option>
+                </select>
+            </div>
+            <div class="clear-wrap"><button id="cashOut-button" disabled>Cash Out</button></div>
+            <div class="play-wrap"><button id="play-button">Play</button></div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>

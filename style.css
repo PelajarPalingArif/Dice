@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'Dosis Bold';
+    src: url("Dosis-Bold.ttf");
+}
+
+:root {
+    --box-dimension: 70px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    font-family: 'Dosis Bold';
+    flex-direction: column;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 10px 0;
+    background-color: rgb(57, 24, 88);
+}
+
+.money-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+
+}
+
+.money-wrap>#money {
+    display: flex;
+    justify-content: end;
+    background-color: grey;
+    width: 200px;
+    padding: 10px 13px 10px 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.money-wrap>#currency {
+    background-color: rgb(75, 74, 74);
+    padding: 10px 20px 10px 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+.dock {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-bottom: 50px;
+}
+
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    row-gap: 19px;
+    padding: 20px 60px 20px 60px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    background-color: rgb(22, 17, 49);
+
+}
+
+.range-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+    background-color: rgb(80, 80, 80);
+    border-radius: 40px;
+    width: 80%;
+}
+
+/* 
+    range-wrap
+    {
+    padding 10px
+}
+
+left : 0, min, 95.5, max
+*/
+.moving-slider {
+    position: absolute;
+    top: -40px;
+    left: calc(47.75% - 8px);
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+    transition: left .4s ease-in-out;
+}
+
+.moving-slider::after {
+    position: absolute;
+    content:' ';
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid white;
+    top:99%;
+
+
+}
+
+
+
+#rangeInput {
+    background: linear-gradient(to right, green 0%, green 50%, red 50%, red 100%);
+    border: none;
+    /* border-radius: 8px; */
+    height: 10px;
+    width: 100%;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+}
+
+
+
+
+
+.control {
+    width: 100%;
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.control> :first-child {
+    margin-left: 30px;
+}
+
+.control> :last-child {
+    margin-right: 30px;
+}
+
+.amount-wrap,
+.risk-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 100px;
+    padding: 10px;
+    border-radius: 9px;
+    border: none;
+    font-family: 'Dosis Bold';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+
+
+}
+
+.clear-wrap>button {
+    border: 1px solid rgb(182, 184, 182);
+    background-color: rgb(109, 119, 109);
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+.clear-wrap>button:hover {
+    background-color: rgb(81, 82, 81);
+}
+
+.play-wrap>button {
+    border: 1px solid rgb(37, 143, 37);
+    background-color: rgb(45, 230, 45);
+    cursor: pointer;
+}
+
+.play-wrap>button:hover {
+    background-color: rgb(44, 218, 44);
+}
+
+/* REMOVE INPUT NUMBER ARROW */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
