@@ -1,5 +1,4 @@
-// TODO: Change the slider, multiplier input, win chance input when the multiplier input and win chance input is changed.
-
+// TODO: Generate Win Chance and Multiplier When Loading the Page
 let inversemode = false;
 let posColor = "green";
 let negColor = "red";
