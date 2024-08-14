@@ -53,7 +53,7 @@ function generateMultiplier(value){
   multiplierInput.value = (1 / (value / 100) - edge).toFixed(2);
   return (1 / (value / 100) - edge).toFixed(2);
 }
-playButton.onclick = function() {
+playButton.onclick = async function() {
 
   const betAmount = amountInput.value;
   if(betAmount == "" || betAmount <= 0) {
@@ -70,7 +70,7 @@ playButton.disabled = true;
   const sliderPosition = parseFloat((randomNumber / 100 * max).toFixed(2));
   
   movingSlider.style.left = `calc( ${sliderPosition}% - 8px)`;	
-	playAudio.play();
+	await playSound(playAudio);
   movingSlider.textContent = randomNumber.toFixed(2);
   if(firstClick){
     movingSlider.style.opacity = "1";
@@ -93,11 +93,19 @@ playButton.disabled = true;
 	playButton.disabled = false;
 }
 
-function cashOut(betAmount) {
+async function cashOut(betAmount) {
   const multi = parseFloat(generateMultiplier(rangeInput.value));
   console.log(betAmount * multi);
   money = money + multi * betAmount;
   accountMoney.textContent = money.toFixed(2);
-  winAudio.play();
+  await playSound(winAudio);
 }
 
+function playSound(audio){
+	return new Promise(res => {
+			audio.play();
+			audio.onended = res;
+		})
+
+
+}
