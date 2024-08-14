@@ -14,11 +14,12 @@ let inverseButton = document.querySelector("#inverse-button");
 let amountInput = document.querySelector("#amountInput");
 let rangeInput = document.querySelector("#rangeInput");
 let accountMoney = document.querySelector("#money");
-
+let playButton = document.querySelector("#play-button");
 let money = parseFloat(accountMoney.textContent);
 
 let edge = 0.05;
 let playAudio = new Audio('play-sound.mp3');
+let winAudio = new Audio('win-sound.mp3');
 
 generateMultiplier(rangeInput.value);
 generateWinChance(rangeInput.value);
@@ -52,14 +53,14 @@ function generateMultiplier(value){
   multiplierInput.value = (1 / (value / 100) - edge).toFixed(2);
   return (1 / (value / 100) - edge).toFixed(2);
 }
-document.querySelector("#play-button").onclick = function() {
+playButton.onclick = function() {
 
   const betAmount = amountInput.value;
   if(betAmount == "" || betAmount <= 0) {
     console.log("Please Enter a valid amount");
     return;
   }
-
+playButton.disabled = true;
   money = money - betAmount;
   accountMoney.textContent = money.toFixed(2);
   const min = 0; 
@@ -68,7 +69,8 @@ document.querySelector("#play-button").onclick = function() {
   const randomNumber = parseFloat((Math.random() * 100).toFixed(2));
   const sliderPosition = parseFloat((randomNumber / 100 * max).toFixed(2));
   
-  movingSlider.style.left = `calc( ${sliderPosition}% - 8px)`;
+  movingSlider.style.left = `calc( ${sliderPosition}% - 8px)`;	
+	playAudio.play();
   movingSlider.textContent = randomNumber.toFixed(2);
   if(firstClick){
     movingSlider.style.opacity = "1";
@@ -87,7 +89,8 @@ document.querySelector("#play-button").onclick = function() {
     }
   }
   console.log(`calc( ${sliderPosition}%+ 10px - 18px)`);
-	playAudio.play();
+
+	playButton.disabled = false;
 }
 
 function cashOut(betAmount) {
@@ -95,6 +98,6 @@ function cashOut(betAmount) {
   console.log(betAmount * multi);
   money = money + multi * betAmount;
   accountMoney.textContent = money.toFixed(2);
-
+  winAudio.play();
 }
 
