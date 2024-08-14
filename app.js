@@ -18,6 +18,7 @@ let accountMoney = document.querySelector("#money");
 let money = parseFloat(accountMoney.textContent);
 
 let edge = 0.05;
+let playAudio = new Audio('play-sound.mp3');
 
 generateMultiplier(rangeInput.value);
 generateWinChance(rangeInput.value);
@@ -86,6 +87,7 @@ document.querySelector("#play-button").onclick = function() {
     }
   }
   console.log(`calc( ${sliderPosition}%+ 10px - 18px)`);
+	playAudio.play();
 }
 
 function cashOut(betAmount) {
